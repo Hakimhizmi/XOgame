@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="xocss.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <div class="divscore row">
+            <div class="col-4 ">
+                <h2 id="scoreblu">0ₚₜ</h2>
+            </div>
+            <div class="col-4">
+                <h1>X 0</h1>
+            </div>
+            <div class="col-4">
+                <h2 id="scorered">0ₚₜ</h2>
+
+            </div>
+            <p>By hakim Hizmi </p>
+        </div>
+
+        <div id="pr">
+            <div class="container" id="main">
+
+
+                <div class="box " style="border-left: 0; border-top: 0" id="box1" onclick="cl('box1')"></div>
+                <div class="box" style="border-top: 0" id="box2" onclick="cl('box2')"></div>
+                <div class="box" style="border-top: 0; border-right: 0" id="box3" onclick="cl('box3')"></div>
+                <div class="box" style="border-left: 0" id="box4" onclick="cl('box4')"></div>
+                <div class="box" id="box5" onclick="cl('box5')"></div>
+                <div class="box" style="border-right: 0" id="box6" onclick="cl('box6')"></div>
+                <div class="box" style="border-left: 0; border-bottom: 0" id="box7" onclick="cl('box7')"></div>
+                <div class="box" style="border-bottom: 0" id="box8" onclick="cl('box8')"></div>
+                <div class="box" style="border-right: 0; border-bottom: 0" id="box9" onclick="cl('box9')"></div>
+            </div>
+
+            <button class="btn btn-rounded" id="replay" onclick="updateDiv()">Play Again</button>
+            <button class="btn btn-rounded" id="replay1" onclick="window.location.reload()">Refresh</button>
+        </div>
+
+        
+
+
+
+        <div class="row  justify-content-center mt-5 " id="divinfscore" >
+
+            <div class="card  ">
+
+                <div class="border p-2 rounded d-flex flex-row align-items-center mt-2">
+
+                    <div class="p-1 px-4 d-flex flex-column align-items-center score rounded">
+                        <span class="d-block char text-success">X</span>
+                        <span class="text-success" id="x">98%</span>
+                    </div>
+                    <div class="ml-2 p-3">
+                        <h6 class="heading1">PLayer 1</h6>
+
+                    </div>
+                </div>
+                <div class="border p-2 rounded d-flex flex-row align-items-center mt-4 ">
+                    <div class="p-1 px-4 d-flex flex-column align-items-center speed rounded">
+                        <span class="d-block char text-warning">O</span>
+                        <span class="text-warning" id="y">72%</span>
+                    </div>
+                    <div class="ml-2 p-4">
+                        <h6 class="text">PLayer 2</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-rounded" id="replay2" onclick="window.location.reload()"
+            style="display: none;">New Round ↻</button>
+
+
+
+    </div>
+
+
+
+    <script>
+        var l = ["X", "O", "X", "O", "X", "O", "X", "O", "X"]
+        if (l.length) {
+
+        }
+
+        var test = false
+
+        function updateDiv() {
+            $("#main").load(window.location.href + " #main");
+            document.getElementById('main').style.pointerEvents = 'auto';
+            l = [];
+            l = ["X", "O", "X", "O", "X", "O", "X", "O", "X"];
+            test = false;
+
+        }
+
+        function cl(d) {
+            document.getElementById(d).innerHTML = l[0]
+            document.getElementById(d).style.pointerEvents = 'none ';
+            var audio1 = new Audio('files/tc.mp3');
+            audio1.play();
+            if (l[0] == 'X') {
+                document.getElementById(d).classList.add('bg-primary');
+
+
+            }
+            if (l[0] == 'O') {
+                document.getElementById(d).classList.add('bg-warning');
+            }
+            l.splice(0, 1);
+            check();
+
+            if (test == false) {
+                if (l.length == 0) {
+                    document.querySelector('#page').classList.add('blur');
+                    var audio3 = new Audio('files/Here.mp3');
+                    audio3.play();
+                    Swal.fire({
+                        customClass: 'swal-wide',
+                        html: '<video width="320" height="200" loop autoplay muted><source src="files/sadcj.mp4" type="video/mp4"></video>',
+                        imageWidth: 300,
+                        imageHeight: 170,
+                        imageAlt: 'Custom image',
+                        confirmButtonText: 'PLAY AGAIN',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.querySelector('#page').classList.remove('blur');
+                        }
+                    })
+                    const jsConfetti = new JSConfetti()
+
+
+                    jsConfetti.addConfetti({
+                        emojis: ['😭', '😔', '😟'],
+                    })
+
+
+                }
+            }
+        }
+
+        function check() {
+
+            var b1 = document.getElementById('box1');
+            var b2 = document.getElementById('box2');
+            var b3 = document.getElementById('box3');
+            var b4 = document.getElementById('box4');
+            var b5 = document.getElementById('box5');
+            var b6 = document.getElementById('box6');
+            var b7 = document.getElementById('box7');
+            var b8 = document.getElementById('box8');
+            var b9 = document.getElementById('box9');
+
+            if (b1.textContent == b2.textContent && b1.textContent == b3.textContent && b1.textContent != '') {
+                color(b1, b2, b3);
+            }
+            if (b1.textContent == b4.textContent && b1.textContent == b7.textContent && b1.textContent != '') {
+                color(b1, b4, b7);
+            }
+            if (b1.textContent == b5.textContent && b1.textContent == b9.textContent && b1.textContent != '') {
+                color(b1, b5, b9);
+            }
+            if (b7.textContent == b8.textContent && b7.textContent == b9.textContent && b7.textContent != '') {
+                color(b7, b8, b9);
+            }
+            if ((b3.textContent == b6.textContent && b3.textContent == b9.textContent && b3.textContent != '')) {
+                color(b3, b6, b9);
+            }
+            if (b2.textContent == b5.textContent && b2.textContent == b8.textContent && b2.textContent != '') {
+                color(b2, b5, b8);
+            }
+            if (b7.textContent == b5.textContent && b7.textContent == b3.textContent && b7.textContent != '') {
+                color(b7, b5, b3);
+            }
+            if (b4.textContent == b5.textContent && b4.textContent == b6.textContent && b4.textContent != '') {
+                color(b4, b5, b6);
+            }
+
+        }
+
+
+
+        function color(a, b, c) {
+            test = true
+            a.classList.add('bg-success');
+            b.classList.add('bg-success');
+            c.classList.add('bg-success');
+            var sco = parseInt(document.getElementById('scoreblu').textContent) + 1;
+            var sco1 = parseInt(document.getElementById('scorered').textContent) + 1;
+            if (a.innerHTML === 'X') {
+                document.getElementById('scoreblu').innerHTML = sco + "ₚₜ";
+            }
+            if (a.innerHTML === 'O') {
+                document.getElementById('scorered').innerHTML = sco1 + "ₚₜ";
+            }
+            var test1 = false
+            if (sco == 5 || sco1 == 5) {
+                document.getElementById('x').innerHTML=(parseInt(document.getElementById('scoreblu').innerHTML)*20)+"%";
+                document.getElementById('y').innerHTML=(parseInt(document.getElementById('scorered').innerHTML)*20)+"%";
+                document.getElementById('pr').style.display = 'none';
+                test1 = true
+                document.querySelector('#page').classList.add('blur');
+                const jsConfetti = new JSConfetti()
+
+
+                jsConfetti.addConfetti({
+                    emojis: ['🏆', '🏆', '🏆', '🏆'],
+                    emojiSize: 100,
+                    confettiNumber: 200,
+                    
+                })
+                
+                Swal.fire({
+                    customClass: 'swal-wide',
+                    html: '<video width="320" height="200" loop autoplay ><source src="files/mkyn ri ijtihad.mp4" type="video/mp4"></video>',
+                    imageWidth: 300,
+                    imageHeight: 170,
+                    imageAlt: 'Custom image',
+                    confirmButtonText: 'ok',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.querySelector('#page').classList.remove('blur');
+                    }
+                })
+                
+                document.getElementById('divinfscore').classList.add('d-flex');
+                document.getElementById('replay2').style.display = 'block';
+
+
+            }
+            if (test1 == false) {
+                var audio = new Audio('files/xoeffect.mp3');
+                audio.play();
+                startConfetti();
+
+                document.querySelector('#page').classList.add('blur');
+                Swal.fire({
+                    title: 'Winner!!!!',
+                    customClass: 'swal-wide',
+                    html: '<video width="320" height="130" loop autoplay muted><source src="files/iq.mp4" type="video/mp4"></video>',
+                    imageWidth: 110,
+                    imageHeight: 110,
+                    imageAlt: 'Custom image',
+                }).then((result) => {
+                    stopConfetti();
+                    document.querySelector('#page').classList.remove('blur');
+                })
+
+            }
+            try {
+                a.classList.remove('bg-warning');
+                b.classList.remove('bg-warning');
+                c.classList.remove('bg-warning');
+            } catch {
+                //pass
+            }
+            document.getElementById('main').style.pointerEvents = 'none';
+
+
+
+        }
+    </script>
+    <script src="confetti.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</body>
+
+</html>

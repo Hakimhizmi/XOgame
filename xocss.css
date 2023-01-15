@@ -1,0 +1,246 @@
+.blur {
+    filter: blur(7px);
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+.container {
+    width: 330px;
+    overflow: hidden;
+    margin: 50px auto 0 auto;
+}
+
+.container span {
+    display: block;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+body{
+    background-color: #f0f2f5;
+}
+
+.container .box {
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(0, 0, 0);
+    transition: all .25s ease-in-out;
+    font-size: 85px;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+}
+
+.container .box:hover {
+    background: rgb(174, 244, 255);
+    color: rgb(108, 108, 108);
+}
+
+.btn {
+    width: 200px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    display: block;
+    margin: 40px auto;
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(8, 8, 8, 0.75);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(5, 5, 5, 0.75);
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
+}
+
+.win {
+    background: #48ceff;
+    color: rgb(0, 94, 255);
+}
+
+#confetti-canvas {
+    position: absolute;
+    top: 0%;
+
+}
+
+.swal-wide {
+    width: 400px !important;
+    height: 330px !important;
+}
+
+
+
+
+
+p {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: Hack, sans-serif;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: shine 5s linear infinite;
+    position: absolute;
+    margin-left: 1300px;
+    margin-top: 106px;
+}
+
+@keyframes shine {
+    0% {
+        background-position-x: -500%;
+    }
+
+    100% {
+        background-position-x: 500%;
+    }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
+
+h1 {
+    font-size: calc(15px + 14vh);
+    line-height: calc(15px + 15vh);
+    /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+    0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
+  color: #fccaff; */
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+    font-family: "Sacramento", cursive;
+    text-align: center;
+    animation: blink 12s infinite;
+    -webkit-animation: blink 12s infinite;
+
+}
+
+
+
+@-webkit-keyframes blink {
+
+    20%,
+    24%,
+    55% {
+        color: #111;
+        text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        /*     color: #fccaff;
+    text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
+        text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+        color: #fff6a9;
+    }
+}
+
+@keyframes blink {
+
+    20%,
+    24%,
+    55% {
+        color: #111;
+        text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        /*     color: #fccaff;
+    text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
+        text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+        color: #fff6a9;
+    }
+}
+
+.divscore {
+    background-color:#ffffff;
+    margin-top: 0%;
+    position: relative;
+    border-bottom: 5px solid rgba(28,110,164,0.27);
+    border-radius: 40px 34px 40px 40px;
+    box-shadow: 0px 10px 25px 0px rgba(28,110,164,0.27);  
+
+   
+    
+}
+
+#scoreblu {
+
+    position: relative;
+    flex-grow: 1;
+    color: #3498db;
+    margin-left: 400px;
+    font-size: 100px;
+    text-shadow: 0 0 45px rgb(4, 102, 214), 0 0 96px rgb(0 0 0);
+}
+
+#scorered {
+    position: relative;
+    flex-grow: 1;
+    color: #e74c3c;
+    font-size: 100px;
+    text-shadow: 0 0 45px rgb(206, 60, 60), 0 0 96px rgb(0 0 0);
+
+}
+
+#replay2 {
+    margin-top: 80px;
+    width: 300px;
+    height: 60px;
+    -webkit-box-shadow: 0px 0px 13px 15px rgba(0, 0, 0, 0.75) !important;
+    -moz-box-shadow: 0px 0px 13px 15px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 10px 10px 33px 10px rgba(0, 0, 0, 0.75) !important;
+
+}
+
+.card {
+    width: 380px;
+    border: none;
+
+}
+
+.border {
+    border-radius: 12px;
+}
+
+.score {
+
+    background-color: #B9F6CA;
+}
+
+.heading1 {
+    color: #0D47A1;
+}
+
+.text {
+    color: #0D47A1;
+}
+
+.speed {
+    background-color: #FFE082;
+}
+
+.char {
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#divinfscore{
+    display: none ;
+}
